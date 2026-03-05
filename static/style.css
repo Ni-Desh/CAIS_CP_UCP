@@ -1,0 +1,151 @@
+/* --- Global Reset & Background --- */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Auth Screen (Login/Signup) --- */
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.auth-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-card h2 { margin-top: 0; color: #1e3c72; }
+
+.auth-card input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Prevents input stretching */
+}
+
+/* --- Main Dashboard Layout --- */
+#main-app {
+    padding: 20px;
+    flex: 1;
+}
+
+header {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr; /* Three columns: Catalog, Cart, Logs */
+    gap: 20px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.panel {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Catalog Design --- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.item-card {
+    border: 2px solid #f1f2f6;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item-card:hover {
+    border-color: #3498db;
+    background: #f0f9ff;
+    transform: translateY(-3px);
+}
+
+/* --- AI & Cart Section --- */
+.cart-list {
+    margin-top: 15px;
+    min-height: 100px;
+    border-bottom: 1px solid #eee;
+}
+
+.payment-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid #27ae60;
+}
+
+/* --- Log Area (The Code/Debug Look) --- */
+.log-area {
+    background: #1e272e;
+    color: #3ae374;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    height: 350px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+/* --- Buttons --- */
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.9; }
+button:disabled { background: #bdc3c7; cursor: not-allowed; }
+
+.pay-btn { background: #27ae60; width: 100%; margin-top: 10px; }
+.warn { background: #eb4d4b; }
+.info { background: #2f3542; }
+
+.debug-btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}

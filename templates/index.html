@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCP | Secure AI Shopping</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+
+    <div id="auth-screen" class="auth-container">
+        <div class="auth-card">
+            <h2 id="auth-title">🔐 UCP Login</h2>
+            <p style="color: #7f8c8d; font-size: 0.9em; margin-bottom: 20px;">Secure User-Centric Protocol</p>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div id="phone-box" style="display: none; border-top: 1px solid #eee; margin-top: 10px; padding-top: 10px;">
+                    <input type="text" id="phone" placeholder="Phone Number">
+                </div>
+            </div>
+            <button id="auth-btn" onclick="handleAuth()">Login</button>
+            <div class="auth-footer">
+                <a href="javascript:void(0)" onclick="toggleAuth()" id="toggle-link">Don't have an account? Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app" style="display: none;">
+        <header>
+            <div class="logo-area">
+                <h1>🛡️ UCP Dashboard</h1>
+                <p>Secure AI Autonomous Purchasing</p>
+            </div>
+            <div class="user-profile">
+                <span id="user-tag">👤 User: Guest</span>
+                <button onclick="location.reload()" style="width:auto; padding:5px 15px; margin-left:10px; background:#95a5a6; font-size:0.8em;">Logout</button>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <div class="panel">
+                <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center;">
+                    <h2>📦 Secure Catalog</h2>
+                    <button onclick="requestAuthority()" style="width:auto; padding:5px 10px;">🔓 Unlock</button>
+                </div>
+                <div id="catalog" class="catalog-grid"></div>
+            </div>
+
+            <div class="panel">
+                <h2>🤖 AI Agent & Cart</h2>
+                <div id="cart-items" class="cart-list">
+                    <p style="text-align:center; color:#95a5a6; margin-top:20px;">Your cart is empty.</p>
+                </div>
+                
+                <div class="cart-controls" style="margin-top:20px;">
+                    <button id="process-btn" onclick="runWorkflow()" disabled style="width:100%;">Start AI Negotiation</button>
+                </div>
+
+                <div id="payment-panel" class="payment-card" style="display:none; margin-top: 20px; border-top: 2px dashed #ddd; padding-top: 15px;">
+                    <h3>💳 Final Approval</h3>
+                    <div id="payment-details"></div>
+                    <button onclick="confirmPayment()" class="pay-btn" style="background:#27ae60; color:white; width:100%; margin-top:10px;">Confirm & Sign Transaction</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2>📜 Execution Log</h2>
+                <div class="log-container">
+                    <pre id="log" class="log-area">>> System Initialized...</pre>
+                </div>
+                <div class="security-tools" style="margin-top:20px;">
+                    <h3>🛠️ Security Tools</h3>
+                    <div class="debug-btns" style="display:flex; gap:10px;">
+                        <button onclick="simulateHack()" class="warn" style="flex:1;">Simulate Hack</button>
+                        <button onclick="verifyIntegrity()" class="info" style="flex:1;">Verify Integrity</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
