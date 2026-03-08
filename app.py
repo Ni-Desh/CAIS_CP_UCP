@@ -187,7 +187,7 @@ def request_otp():
     user, phone = session.get('user'), session.get('phone', 'Unknown')
     raw_otp = str(random.randint(100000, 999999))
     pending_otps[user] = {"hash": simple_hash(raw_otp), "expiry": time.time() + 300}
-    print(f"\n📱 [SMS] To {phone}: Code is {raw_otp}\n")
+    print(f"\n [SMS] To {phone}: Code is {raw_otp}\n")
     return jsonify({"status": "sent"})
 
 @app.route('/pay', methods=['POST'])
@@ -206,7 +206,7 @@ def pay():
     tx_hash = log_transaction(user, total, items_list)
 
     return jsonify({
-        "log": f"✅ Transaction Securely Signed.\n📜 Audit Hash: {tx_hash[:16]}...",
+        "log": f"✅ Transaction Securely Signed.\n Audit Hash: {tx_hash[:16]}...",
         "status": "success"
     })
 
