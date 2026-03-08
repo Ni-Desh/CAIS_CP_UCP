@@ -240,7 +240,7 @@ async function runWorkflow() {
         // AI Bargaining Log for UI Console
         data.provisional_order.forEach(item => {
             let originalItemTotal = cart.find(c => c.item === item.item).market_price * item.quantity;
-            logBox.innerText += `\n🤝 Negotiated ${item.item} (x${item.quantity}): $${originalItemTotal.toFixed(2)} ➔ $${item.total.toFixed(2)}`;
+            logBox.innerText += `\n Negotiated ${item.item} (x${item.quantity}): $${originalItemTotal.toFixed(2)} ➔ $${item.total.toFixed(2)}`;
         });
         
         negotiatedTotal = data.total; 
